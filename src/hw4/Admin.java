@@ -24,7 +24,7 @@ import javafx.stage.Stage;
  * @author HP
  */
 public class Admin extends Application {
-    
+    String str[] = new String[100];
     @Override
     public void start(Stage primaryStage) {
         
@@ -59,7 +59,11 @@ public class Admin extends Application {
         TextField lnRTF = new TextField();
         TextField emRTF = new TextField();
         
-        Button signIn = new Button();
+        Button signIn = new Button("Sign In");
+        signIn.setStyle(
+                "-fx-margin: 0 0 0 20;"
+                        + "-fx-font-size:25;"
+        );
         signIn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -82,7 +86,10 @@ public class Admin extends Application {
         PasswordField pwTf = new PasswordField();
         
         Button logIn = new Button("Log In");
-        logIn.setText("Sign In");
+        logIn.setStyle(
+                "-fx-font-size: 25;"
+                        + "-fx-"
+        );
         logIn.setOnAction(new EventHandler<ActionEvent>() {
             
             @Override
@@ -100,17 +107,15 @@ public class Admin extends Application {
         mainVb.setSpacing(15);
         
         HBox btnHb = new HBox();
+        btnHb.setStyle("-fx-padding: 0 0 10 10;");
         
         btnHb.setAlignment(Pos.CENTER);
-        mainVb.setStyle(
-                "-fx-padding: 10;"
-        );
         btnHb.getChildren().addAll(logIn, signIn);
         
         mainHb.getChildren().addAll(firstHb, secondHb);
         mainVb.getChildren().addAll(mainHb,btnHb);
         Scene scene = new Scene(mainVb, 600, 450);
-        
+        scene.getStylesheets().add("/style.css");
         primaryStage.setTitle("Sign in or Registration!");
         primaryStage.setScene(scene);
         primaryStage.show();
